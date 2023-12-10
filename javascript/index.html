@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript function test</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Rubik+Bubbles" rel="stylesheet">
+    <link href="custom-css.css" rel="stylesheet">
+</head>
+<body style="height: 100%">
+    <div style="position: relative;" >
+        <div id="alerts-container">
+        </div>
+    </div>
+    
+    <main style="height: 100%">
+        <div class="container flex-column text-center align-items-center align-items-center py-5 px-4" style="height: 100%">
+            <h1>Welcome to the cat generator!</h1>
+            <input id= "number-input" name="number-input" placeholder="Your Number" value="0" class="input my-3" required>
+            <div class="flex-row">
+                <button class="button" id="minus-one">-</button>
+                <button class="button" id="plus-one">+</button>
+            </div>
+            <div id="cats-container" class="cats-container">
+            </div>
+        </div>
+    </main>
+    
+    <script src="script.js"></script>
+</body>
+</html>

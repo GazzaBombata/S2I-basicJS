@@ -1,0 +1,79 @@
+.cats-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 10px;
+}
+
+.cat-image {
+    width: 100%;
+    height: auto;
+}
+
+body {
+    background-image: url('images/cat-background.png');
+    background-size: 100% auto; 
+    background-repeat: repeat-y; 
+}
+
+.input {
+    border-radius: 5px;
+    border-width: 1px;
+    padding-left: 5px;
+
+}
+
+h1 {
+    font-family: 'Rubik Bubbles';
+    color: bisque;
+}
+
+.button {
+    border-width: 1px;
+    background-color: bisque;
+    color: black;
+    border-radius: 5px;
+}
+
+.button:hover {
+    background-color: brown;
+    color: white;
+}
+
+.alert-custom {
+    background-color: bisque;
+    color: black;
+    width: 200px;
+    border: none; 
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out; 
+}
+
+.alert-custom-remove {
+    background-color: brown;
+    color: white;
+    width: 200px;
+    border: none; 
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out; 
+}
+
+
+#alerts-container {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 10; 
+    width: 200px;
+}
+
+
+@media (max-width: 768px) {
+    .cats-container {
+        grid-template-columns: 1fr;
+    }
+    .alert-custom {
+        width: 100px;
+    }
+}
