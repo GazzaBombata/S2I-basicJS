@@ -14,12 +14,8 @@ Cat Counter is a fun and interactive web application where users can increase or
 
 2. Open the `index.html` file in a web browser.
 
-## Screenshots
-(Insert screenshots of your application here. You can upload the images to your `img` folder and link them like this:)
-![Screenshot 1](img/screenshot1.png)
-
 ## Live Demo
-You can try the application live at: [Cat Counter Live Demo](URL_of_your_live_demo)
+You can try the application live at: [Cat Counter Live Demo](https://gazzabombata.github.io/S2I-basicJS/)
 
 ## Technologies Used
 - HTML
@@ -27,7 +23,7 @@ You can try the application live at: [Cat Counter Live Demo](URL_of_your_live_de
 - JavaScript
 
 ## Author
-- Giorgio Giotto
+- [Giorgio Giotto] (https://github.com/GazzaBombata)
 
 ## License
 This project is open source and available without LICENSE
