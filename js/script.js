@@ -28,6 +28,7 @@ function addCatImage() {
         const newImg = document.createElement('img');
         newImg.src = `images/${catImages[imgIndex]}`;
         newImg.className = 'cat-image'; 
+        newImg.alt = 'cat-image'
         catsContainer.appendChild(newImg);
         
         const newAlert = document.createElement('div')
