@@ -1,8 +1,29 @@
 
+const main = document.querySelector('.root');
 
-const buttonPlusOne = document.getElementById('plus-one')
-const buttonMinusOne = document.getElementById('minus-one')
-const input = document.getElementById('number-input')
+function createAndAppendElement(elementType, parentElement, classList) {
+    const element = document.createElement(elementType);
+    classList.forEach(classItem => element.classList.add(classItem));
+    parentElement.appendChild(element);
+    return element;
+}
+
+
+const aside = createAndAppendElement('aside', main, ['relative-div']);
+const alertsContainer = createAndAppendElement('div', aside, ['alerts-container']);
+
+const section = createAndAppendElement('section', main, ['flex-column', 'text-center', 'pt-5']);
+createAndAppendElement('h1', section, []).innerText = 'Welcome to the cat generator!';
+const input = createAndAppendElement('input', section, ['input', 'my-3']);
+input.value = 0;
+
+const buttonContainer = createAndAppendElement('div', section, []);
+const buttonPlusOne = createAndAppendElement('button', buttonContainer, ['button']);
+buttonPlusOne.innerText = '+'
+const buttonMinusOne = createAndAppendElement('button', buttonContainer, ['button']);
+buttonMinusOne.innerText = '-'
+const catsContainer = createAndAppendElement('div', section, ['cats-container', 'pt-5']);
+
 
 const catImages = ['cat1.png', 'cat2.png', 'cat3.png', 'cat4.png', 'cat5.png'];
 const catMessages = [
@@ -19,8 +40,26 @@ const catMessagesRemove = [
     'Thanks',
     'That was unnecessary'
 ];
-const catsContainer = document.getElementById('cats-container');
-const alertsContainer = document.getElementById('alerts-container');
+
+function addAlert(alertClass, index) {
+    const newAlert = document.createElement('div')
+        newAlert.classList.add('alert', 'alert-primary', alertClass)
+        newAlert.innerHTML = catMessages[index]
+        alertsContainer.appendChild(newAlert);
+        
+        setTimeout(() => {
+            newAlert.style.opacity = 1;
+        }, 10);
+
+        setTimeout(() => {
+            newAlert.style.opacity = 0;
+            setTimeout(() => {
+                alertsContainer.removeChild(newAlert);
+            }, 500);
+        }, 3000);
+
+}
+
 
 function addCatImage() {
     if (input.value > 0) {
@@ -31,21 +70,7 @@ function addCatImage() {
         newImg.alt = 'cat-image'
         catsContainer.appendChild(newImg);
         
-        const newAlert = document.createElement('div')
-        newAlert.classList.add('alert', 'alert-primary', 'alert-custom')
-        newAlert.innerHTML = catMessages[imgIndex]
-        alertsContainer.appendChild(newAlert);
-        
-        setTimeout(() => {
-            newAlert.style.opacity = 1;
-        }, 10);
-
-        setTimeout(() => {
-            newAlert.style.opacity = 0;
-            setTimeout(() => {
-                alertsContainer.removeChild(newAlert);
-            }, 500);
-        }, 3000);
+        addAlert('alert-custom',imgIndex)
     }
 }
 
@@ -55,21 +80,7 @@ function removeCatImage() {
 
         const imgIndex = Math.floor(Math.random() * catMessagesRemove.length);
 
-        const newAlert = document.createElement('div')
-        newAlert.classList.add('alert', 'alert-primary', 'alert-custom-remove')
-        newAlert.innerHTML = catMessagesRemove[imgIndex];
-        alertsContainer.appendChild(newAlert);
-
-        setTimeout(() => {
-            newAlert.style.opacity = 1;
-        }, 10);
-
-        setTimeout(() => {
-            newAlert.style.opacity = 0;
-            setTimeout(() => {
-                alertsContainer.removeChild(newAlert);
-            }, 500);
-        }, 3000);
+        addAlert('alert-custom-remove',imgIndex)
     }
 }
 
@@ -90,9 +101,6 @@ function editNumber(inputElement, change) {
         removeCatImage();
     }
 }
-
-
-
 buttonPlusOne.addEventListener('click', () => editNumber(input,+1)) 
 
 buttonMinusOne.addEventListener('click', () => editNumber(input,-1))
